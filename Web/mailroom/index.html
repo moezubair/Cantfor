@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Zubair">
+    <title>Mailroom Clerk</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Cantfor</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </div>
+  <!-- SIDE BAR-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-3 sidebar">
+              <div class="col-md-4 col-sm-3 placeholder" id="tabs" data-tabs="tabs">
+                <a href="#approved" data-toggle="tab"><img data-src="holder.js/70x70/sky/text:Approved" class="img-responsive" alt="active"></a>
+            </div>
+              <div class="col-md-4 col-sm-3 placeholder">
+                <img data-src="holder.js/70x70/vine/text:Assigned" class="img-responsive" alt="Assigned">
+            </div>
+          
+          <div class="tab-content" id="tab-content">
+            <div class="tab-pane fade in active" id="home">WILL SHOW ALL LISTINGS</div>
+            <div class="tab-pane fade" id="approved">Only show approved listings</div>
+        </div>
+          
+          
+            </div>
+        </div><!--END SIDEBAR-->
+        <!--MAIN PAGE-->
+        <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+          <h1 class="page-header">Add Invoice</h1>
+
+      </div>
+    </div>
+
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+ <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#tabs').tab();
+    });
+</script>    
+  </body>
+</html>
