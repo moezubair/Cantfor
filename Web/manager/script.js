@@ -200,6 +200,10 @@ Display.prototype.assign = function(user){
     this.show_records(this.current_filter); 
     this.displayInvoiceRecord(this.current); 
 }
+
+Display.prototype.init = function(){
+    $("#username").text(this.user);
+}
 /*===========================================*/
 //END FUNCTIONS
 /*===========================================*/
@@ -253,7 +257,9 @@ var records = new Array(
     record_10
 );
 var disp = new Display(records, 0);
+disp.user = "Branch Manager";
 disp.show_records(disp.current_filter);
+disp.init(); 
 console.log(disp.records); 
 
 
