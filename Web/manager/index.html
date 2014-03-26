@@ -107,8 +107,8 @@
                     <div class='col-sm-4'>
                         <table class='table' id="button-table">
                             <tbody>
-                                <tr><td><button class='btn btn-primary action-button'>Assume Ownership</button></td></tr>
-                                <tr><td><button class='btn btn-primary action-button'>Assign Ownership</button></td></tr>
+                                <tr><td><button class='btn btn-primary action-button' onclick="disp.assumeOwnership()">Assume Ownership</button></td></tr>
+                                <tr><td><button class='btn btn-primary action-button' data-toggle="modal" data-target="#assign-modal">Assign Ownership</button></td></tr>
                                 <tr><td><button class='btn btn-primary action-button' data-toggle="modal" data-target="#subscribers-modal">Add Subscribers</button></td></tr>
                                 <tr><td><button class='btn btn-primary action-button'>View History</button></td></tr>
                                 <tr><td><a href="sample_invoice.jpg"><button class='btn btn-info action-button'>View/Download</button></a></td></tr>
@@ -130,6 +130,54 @@
         </div>
     </div>
 
+    <!--ASSIGN OWNERS MODAL -->
+    <div class="modal fade" id='assign-modal'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Assign Owner</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class='table'>
+                            <tbody>
+                                <tr>
+                                    <td>Branch Manager</td>
+                                    <td><button class='btn btn-info' data-dismiss="modal" onclick="disp.assign('Branch Manager');">Assign</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Accountant</td>
+                                    <td><button class='btn btn-info' data-dismiss="modal" onclick="disp.assign('Accountant');">Assign</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Branch Clerk</td>
+                                    <td><button class='btn btn-info' data-dismiss="modal" onclick="disp.assign('Branch Clerk');">Assign</button></td>
+                                </tr>
+                                <tr>
+                                    <td>APAR Clerk</td>
+                                    <td><button class='btn btn-info' data-dismiss="modal" onclick="disp.assign('APAR Clerk');">Assign</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Joe</td>
+                                    <td><button class='btn btn-info' data-dismiss="modal" onclick="disp.assign('Joe');">Assign</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Warren</td>
+                                    <td><button class='btn btn-info' data-dismiss="modal" onclick="disp.assign('Warren');">Assign</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--END ASSIGN OWNERS MODAL -->
+
+
+
     <!--SUBSCRIBERS MODAL -->
     <div class="modal fade" id='subscribers-modal'>
         <div class="modal-dialog">
@@ -143,15 +191,27 @@
                             <tbody>
                                 <tr>
                                     <td>Branch Manager</td>
-                                    <td><button class='btn btn-info'>Subscribe</button></td>
+                                    <td><button class='btn btn-info' onclick="disp.subscribe('Branch Manager');">Subscribe</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Accountant</td>
+                                    <td><button class='btn btn-info' onclick="disp.subscribe('Accountant');">Subscribe</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Branch Clerk</td>
+                                    <td><button class='btn btn-info' onclick="disp.subscribe('Branch Clerk');">Subscribe</button></td>
+                                </tr>
+                                <tr>
+                                    <td>APAR Clerk</td>
+                                    <td><button class='btn btn-info' onclick="disp.subscribe('APAR Clerk');">Subscribe</button></td>
                                 </tr>
                                 <tr>
                                     <td>Joe</td>
-                                    <td><button class='btn btn-info'>Subscribe</button></td>
+                                    <td><button class='btn btn-info' onclick="disp.subscribe('Joe');">Subscribe</button></td>
                                 </tr>
                                 <tr>
                                     <td>Warren</td>
-                                    <td><button class='btn btn-info'>Subscribe</button></td>
+                                    <td><button class='btn btn-info' onclick="disp.subscribe('Warren');">Subscribe</button></td>
                                 </tr>
                             </tbody>
                         </table>
