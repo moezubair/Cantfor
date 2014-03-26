@@ -43,43 +43,34 @@
         </div>
       </div>
     </div>
-  <!-- SIDE BAR-->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 col-sm-3 placeholder">
-            <a href="" onclick="show_records('ALL');"><img data-src="holder.js/70x70/white/text:All" class="img-responsive" alt="Assigned"></a>
+    <!--END MENU BAR -->
+    <div class="container">
+        <div class="row">
+              <!-- SIDE BAR-->
+            <div class="col-sm-3">
+                  <div class="row">
+                        <button class="btn btn-primary" onclick="show_records('ALL');">All</button>
+                  </div>
+                 <div class="row">
+                        <table class="table">
+                            <tbody id="invoice-record-table">
+                               <!--INVOICE RECORDS GO HERE--> 
+                            </tbody>
+                        </table>
+                 </div>
+            </div>
+            <!--END SIDEBAR-->
+            <!--MAIN PAGE-->
+            <div class="col-sm-9 main">
+                <h1 class="page-header">Invoices</h1>
+            </div>
         </div>
-        <div class="col-sm-3 col-md-3 sidebar">
-              <div class="col-md-4 col-sm-3 placeholder" id="tabs" data-tabs="tabs">
-                <a href="#approved">
-                    <img data-src="holder.js/70x70/sky/text:Approved" class="img-responsive" alt="active">
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-3 placeholder">
-                <img data-src="holder.js/70x70/vine/text:Assigned" class="img-responsive" alt="Assigned">
-            </div>
-          
-        <div class="tab-content" id="tab-content">
-            <table class="table">
-                <tbody id="invoice-record-table">
-                   <!--INVOICE RECORDS GO HERE--> 
-                </tbody>
-            </table>
-        </div>
-          
-          
-            </div>
-        </div><!--END SIDEBAR-->
-        <!--MAIN PAGE-->
-        <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
-          <h1 class="page-header">Invoices</h1>
-
-      </div>
     </div>
+</body>
 
 
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
- <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
+<script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
 
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
@@ -87,5 +78,4 @@
     });
 </script>    
 <script type="text/javascript" src="script.js"></script>
-  </body>
 </html>

@@ -40,8 +40,18 @@ var records = new Array(record_1, record_2, record_3);
 console.log(records); 
 
 function show_records(type){
-    for(InvoiceRecord i: records){
-        if(type == ""){
+    for(i in records){
+        if(type == "ALL"){
+            addInvoiceRow(i);
+        }else if(type == "NEW"){
+            addInvoiceRow(i);
         }
     }
-}
+};
+
+function addInvoiceRow(record){
+    var s = "<tr>";
+    s += "<td>"+record.id+"</td>";
+    s += "</tr>";
+    $("#invoice-record-table").append(s)
+};
