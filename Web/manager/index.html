@@ -46,17 +46,25 @@
   <!-- SIDE BAR-->
     <div class="container-fluid">
       <div class="row">
+        <div class="col-md-4 col-sm-3 placeholder">
+            <a href="" onclick="show_records('ALL');"><img data-src="holder.js/70x70/white/text:All" class="img-responsive" alt="Assigned"></a>
+        </div>
         <div class="col-sm-3 col-md-3 sidebar">
               <div class="col-md-4 col-sm-3 placeholder" id="tabs" data-tabs="tabs">
-                <a href="#approved" data-toggle="tab"><img data-src="holder.js/70x70/sky/text:Approved" class="img-responsive" alt="active"></a>
+                <a href="#approved">
+                    <img data-src="holder.js/70x70/sky/text:Approved" class="img-responsive" alt="active">
+                </a>
             </div>
-              <div class="col-md-4 col-sm-3 placeholder">
+            <div class="col-md-4 col-sm-3 placeholder">
                 <img data-src="holder.js/70x70/vine/text:Assigned" class="img-responsive" alt="Assigned">
             </div>
           
-          <div class="tab-content" id="tab-content">
-            <div class="tab-pane fade in active" id="home">WILL SHOW ALL LISTINGS</div>
-            <div class="tab-pane fade" id="approved">Only show approved listings</div>
+        <div class="tab-content" id="tab-content">
+            <table class="table">
+                <tbody id="invoice-record-table">
+                   <!--INVOICE RECORDS GO HERE--> 
+                </tbody>
+            </table>
         </div>
           
           
@@ -70,7 +78,7 @@
     </div>
 
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
  <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
 
 <script type="text/javascript">
@@ -78,5 +86,6 @@
         $('#tabs').tab();
     });
 </script>    
+<script type="text/javascript" src="script.js"></script>
   </body>
 </html>
