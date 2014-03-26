@@ -1,12 +1,20 @@
 /*Javascript "backend" for UI Demo*/
 
-function InvoiceRecord(id, title, date, record_status){
+/*
+* Invoice record class
+*/
+function InvoiceRecord(id, title, date, record_status, owner){
     this.id = id; 
     this.title = title; 
     this.date = date;
     this.record_status = record_status;
-    this.owner = "APAR Manager";
-    this.subscribers = new Array();
+    if(typeof owner == 'undefined'){
+        this.owner = "APAR Manager";
+        this.subscribers = new Array("APAR Manager");
+    }else{
+        this.owner = owner; 
+        this.subscribers = new Array("APAR Manager", owner);
+    }
 }
 InvoiceRecord.prototype.getTitle = function(){
     return this.title;
@@ -33,42 +41,43 @@ InvoiceRecord.prototype.setTitle = function(x){
     this.title = x;
 };
 
-var record_1 = new InvoiceRecord(1, "MacBook Air Purchase", "2014-01-01", "NEW"); 
-var record_2 = new InvoiceRecord(2, "10000 Pages of Paper", "2014-02-15", "FLAGGED"); 
-var record_3 = new InvoiceRecord(3, "New Desk From Staples", "2014-01-11", "NEW"); 
-var record_4 = new InvoiceRecord(4, "Black liquid ink pens", "2014-03-10", "APPROVED"); 
-var record_5 = new InvoiceRecord(5, "Monitors from Acer", "2014-03-15", "VERIFIED"); 
-var record_6 = new InvoiceRecord(6, "Coffee from Thrifties", "2014-03-01", "PAID"); 
-
-var records = new Array(record_1, record_2, record_3, record_4, record_5, record_6);
-
-show_records("ALL");
-
-console.log(records); 
-
+/*
+* Manages the entire display and the current user
+*/
+function Display(arr, curr){
+    this.user = "APAR Manager"
+    this.records = arr; 
+    this.current = curr; 
+    this.current_filter = "ALL";
+}
 /*
 * Updates the invoice record side
 * bar to display the invoice records
 * that have a record_status @param:type
 */
-function show_records(type){
-    clearInvoiceRecords();
-    for(i in records){
-        if(type === "ALL"){ //show all of the records
-            addInvoiceRow(records[i], i);
+Display.prototype.show_records = function(type){
+    this.clearInvoiceRecords();
+    this.current_filter = type; 
+    for(i in this.records){
+        if(type === "ALL" && this.records[i].subscribers.indexOf(this.user) != -1){ //show all of the records that the user is subscribed too.
+            this.addInvoiceRow(this.records[i], i);
         } 
-        else if(records[i].record_status === type){ //filter by type
-            addInvoiceRow(records[i], i);
+        else if(type === "OWNER" && this.records[i].owner === this.user && this.records[i].subscribers.indexOf(this.user) != -1){
+            this.addInvoiceRow(this.records[i], i);
+        }
+        else if(records[i].record_status === type && this.records[i].subscribers.indexOf(this.user) != -1){ //filter by type
+            this.addInvoiceRow(this.records[i], i);
         }
     }
+    this.displayInvoiceRecord(this.current); 
 };
 
 /*
 * Adds a new row in the invoice record
 * table with the data in record.
 */
-function addInvoiceRow(record, i){
-    var s = "<tr onclick='displayInvoiceRecord("+i+")'>";
+Display.prototype.addInvoiceRow = function(record, i){
+    var s = "<tr onclick='disp.displayInvoiceRecord("+i+")'>";
     s += "<td>";
     s += "<a href='#'>"
     if(record.record_status === "NEW"){
@@ -98,7 +107,7 @@ function addInvoiceRow(record, i){
 * Clears the invoice records in the 
 * side pane so that they can be replaced
 */
-function clearInvoiceRecords(){
+Display.prototype.clearInvoiceRecords = function(){
    var table = document.getElementById("invoice-record-table-body");
    for(var i = table.rows.length - 1; i >= 0; i--){
         table.deleteRow(i);
@@ -108,45 +117,55 @@ function clearInvoiceRecords(){
 /*
 * Displays the invoice record information in the main pane
 */
-function displayInvoiceRecord(i){
-    console.log("displayInvoiceRecord("+i+")");
+Display.prototype.displayInvoiceRecord = function(i){
+    console.log("Display.displayInvoiceRecord("+i+")");
 
-    clearInvoiceRecordDisplay();  //clear all fields. 
+    this.clearInvoiceRecordDisplay();  //clear all fields. 
+    this.current = i; 
 
     // Update all fields within the invoice display.
-    $("#invoice-record-title").text(records[i].title); 
-    $("#invoice-record-date-field").text(records[i].date); 
-    $("#invoice-record-owner-field").text(records[i].owner); 
-    $("#invoice-record-id-field").text(records[i].id); 
+    $("#invoice-record-title").text(this.records[i].title); 
+    $("#invoice-record-date-field").text(this.records[i].date); 
+    $("#invoice-record-owner-field").text(this.records[i].owner); 
+    $("#invoice-record-id-field").text(this.records[i].id); 
+    $("#invoice-record-status-field").text(this.records[i].record_status); 
+
+    var s = ""; 
+    for(j in this.records[i].subscribers){
+       s += this.records[i].subscribers[j]+", " 
+    }
+    $("#invoice-record-subscribers-field").text(s); 
 
     //enable appropriate buttons
-    if(records[i].record_status === "NEW"){
+    if(this.records[i].record_status === "NEW"){
         $("#approve-button").removeAttr("disabled");
         $("#reject-button").removeAttr("disabled");
         $("#flag-button").removeAttr("disabled");
-    }else if(records[i].record_status === "APPROVED"){
+    }else if(this.records[i].record_status === "APPROVED"){
         $("#verify-button").removeAttr("disabled");
-    }else if(records[i].record_status === "FLAGGED"){
+    }else if(this.records[i].record_status === "FLAGGED"){
         $("#approve-button").removeAttr("disabled");
         $("#reject-button").removeAttr("disabled");
-    }else if(records[i].record_status === "VERIFIED"){
+    }else if(this.records[i].record_status === "VERIFIED"){
         $("#paid-button").removeAttr("disabled");
-    }else if(records[i].record_status === "PAID"){
+    }else if(this.records[i].record_status === "PAID"){
         $("#reconcile-button").removeAttr("disabled");
     }
-}
+};
 
 /*
 * Clears all fields in the invoice records
 * display
 */
-function clearInvoiceRecordDisplay(){
-    console.log("clearInvoiceRecordDisplay()");
+Display.prototype.clearInvoiceRecordDisplay = function(){
+    console.log("Display.clearInvoiceRecordDisplay()");
     $("#invoice-record-title").empty();     
     $("#invoice-record-id-field").empty();     
     $("#invoice-record-date-field").empty();     
     $("#invoice-record-owner-field").empty();     
     $("#invoice-record-subscribers-field").empty();     
+    $("#invoice-record-status-field").empty();     
+
 
     //disable all buttons.
     $("#approve-button").attr("disabled",'disabled'); 
@@ -155,4 +174,54 @@ function clearInvoiceRecordDisplay(){
     $("#reject-button").attr("disabled",'disabled'); 
     $("#paid-button").attr("disabled",'disabled'); 
     $("#reconcile-button").attr("disabled",'disabled'); 
-}
+};
+
+Display.prototype.changeInvoiceStatus = function(stat){
+    this.records[this.current].setRecordStatus(stat);   
+    this.show_records(this.current_filter); 
+    this.displayInvoiceRecord(this.current); 
+};
+
+/*===========================================*/
+//END FUNCTIONS
+/*===========================================*/
+
+
+
+
+
+
+
+
+
+//===================================================
+//Main Code
+//===================================================
+var record_1 = new InvoiceRecord(1, "MacBook Air Purchase", "2014-01-01", "NEW"); 
+var record_2 = new InvoiceRecord(2, "10000 Pages of Paper", "2014-02-15", "FLAGGED"); 
+var record_3 = new InvoiceRecord(3, "New Desk From Staples", "2014-01-11", "NEW"); 
+var record_4 = new InvoiceRecord(4, "Black liquid ink pens", "2014-03-10", "APPROVED"); 
+var record_5 = new InvoiceRecord(5, "Monitors from Acer", "2014-03-15", "VERIFIED"); 
+var record_6 = new InvoiceRecord(6, "Coffee from Thrifties", "2014-03-01", "PAID"); 
+var record_7 = new InvoiceRecord(6, "Wall clock from Homehardware", "2014-03-12", "NEW", "Branch Manager"); 
+
+//add some subscribers
+record_1.subscribers.push("John");
+record_1.subscribers.push("Joe");
+
+record_2.subscribers.push("Sarah");
+record_2.subscribers.push("Joe");
+
+record_3.subscribers.push("Logan");
+record_3.subscribers.push("Alex");
+
+record_4.subscribers.push("Logan");
+record_4.subscribers.push("Alex");
+record_4.subscribers.push("Warren");
+
+var records = new Array(record_1, record_2, record_3, record_4, record_5, record_6, record_7);
+var disp = new Display(records, 0);
+disp.show_records(disp.current_filter);
+console.log(disp.records); 
+
+

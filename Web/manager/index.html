@@ -48,12 +48,13 @@
               <!-- SIDE BAR-->
             <div class="col-sm-5 sidebar">
                   <div class="row">
-                        <button class="btn btn-default" onclick="show_records('ALL');">All</button>
-                        <button class="btn btn-primary" onclick="show_records('NEW');">New</button>
-                        <button class="btn btn-success" onclick="show_records('APPROVED');">Approved</button>
-                        <button class="btn btn-info" onclick="show_records('VERIFIED');">Verified</button>
-                        <button class="btn btn-danger" onclick="show_records('FLAGGED');">Flagged</button>
-                        <button class="btn btn-warning" onclick="show_records('PAID');">Paid</button>
+                        <button class="btn btn-default" onclick="disp.show_records('ALL');">All</button>
+                        <button class="btn btn-default" onclick="disp.show_records('OWNER');">Owned</button>
+                        <button class="btn btn-primary" onclick="disp.show_records('NEW');">New</button>
+                        <button class="btn btn-success" onclick="disp.show_records('APPROVED');">Approved</button>
+                        <button class="btn btn-info" onclick="disp.show_records('VERIFIED');">Verified</button>
+                        <button class="btn btn-danger" onclick="disp.show_records('FLAGGED');">Flagged</button>
+                        <button class="btn btn-warning" onclick="disp.show_records('PAID');">Paid</button>
                   </div>
                   <hr>
                  <div class="row">
@@ -84,6 +85,10 @@
                                     <td id="invoice-record-id-field">5</td>
                                 </tr>
                                 <tr>
+                                    <td><b>Status:</b></td>
+                                    <td id="invoice-record-status-field">NEW</td>
+                                </tr>
+                                <tr>
                                     <td><b>Last Updated:</b></td>
                                     <td id="invoice-record-date-field">2014-01-01</td>
                                 </tr>
@@ -112,12 +117,12 @@
                 </div>
                 <div class='row'>
                     <div class='col-sm-12' id="invoice-action-button-wrapper">
-                        <button class='btn btn-success'disabled="disabled" id="approve-button">Approve</button>
-                        <button class='btn btn-warning'disabled="disabled" id="flag-button">Flag</button>
-                        <button class='btn btn-danger'disabled="disabled" id='reject-button'>Reject</button>
-                        <button class='btn btn-info'disabled="disabled" id='verify-button'>Verify</button>
-                        <button class='btn btn-primary'disabled="disabled" id='paid-button'>Mark Paid</button>
-                        <button class='btn btn-primary'disabled="disabled" id='reconcile-button'>Reconcile</button>
+                        <button class='btn btn-success'disabled="disabled" id="approve-button" onclick="disp.changeInvoiceStatus('APPROVED');">Approve</button>
+                        <button class='btn btn-warning'disabled="disabled" id="flag-button"onclick="disp.changeInvoiceStatus('FLAGGED');">Flag</button>
+                        <button class='btn btn-danger'disabled="disabled" id='reject-button'onclick="disp.changeInvoiceStatus('REJECTED');">Reject</button>
+                        <button class='btn btn-info'disabled="disabled" id='verify-button'onclick="disp.changeInvoiceStatus('VERIFIED');">Verify</button>
+                        <button class='btn btn-primary'disabled="disabled" id='paid-button'onclick="disp.changeInvoiceStatus('PAID');">Mark Paid</button>
+                        <button class='btn btn-primary'disabled="disabled" id='reconcile-button'onclick="disp.changeInvoiceStatus('RECONCILED');">Reconcile</button>
                     </div>
                 </div>
             </div>
