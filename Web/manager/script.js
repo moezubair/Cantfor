@@ -118,6 +118,22 @@ function displayInvoiceRecord(i){
     $("#invoice-record-date-field").text(records[i].date); 
     $("#invoice-record-owner-field").text(records[i].owner); 
     $("#invoice-record-id-field").text(records[i].id); 
+
+    //enable appropriate buttons
+    if(records[i].record_status === "NEW"){
+        $("#approve-button").removeAttr("disabled");
+        $("#reject-button").removeAttr("disabled");
+        $("#flag-button").removeAttr("disabled");
+    }else if(records[i].record_status === "APPROVED"){
+        $("#verify-button").removeAttr("disabled");
+    }else if(records[i].record_status === "FLAGGED"){
+        $("#approve-button").removeAttr("disabled");
+        $("#reject-button").removeAttr("disabled");
+    }else if(records[i].record_status === "VERIFIED"){
+        $("#paid-button").removeAttr("disabled");
+    }else if(records[i].record_status === "PAID"){
+        $("#reconcile-button").removeAttr("disabled");
+    }
 }
 
 /*
@@ -131,4 +147,12 @@ function clearInvoiceRecordDisplay(){
     $("#invoice-record-date-field").empty();     
     $("#invoice-record-owner-field").empty();     
     $("#invoice-record-subscribers-field").empty();     
+
+    //disable all buttons.
+    $("#approve-button").attr("disabled",'disabled'); 
+    $("#verify-button").attr("disabled",'disabled'); 
+    $("#flag-button").attr("disabled",'disabled'); 
+    $("#reject-button").attr("disabled",'disabled'); 
+    $("#paid-button").attr("disabled",'disabled'); 
+    $("#reconcile-button").attr("disabled",'disabled'); 
 }
