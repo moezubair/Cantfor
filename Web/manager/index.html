@@ -9,6 +9,7 @@
     <meta name="author" content="Zubair">
     <title>APAR Manager</title>
   <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="bootstrap.min.js"></script>
     <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="bootstrap.min.css">
 
@@ -108,7 +109,7 @@
                             <tbody>
                                 <tr><td><button class='btn btn-primary action-button'>Assume Ownership</button></td></tr>
                                 <tr><td><button class='btn btn-primary action-button'>Assign Ownership</button></td></tr>
-                                <tr><td><button class='btn btn-primary action-button'>Add Subscribers</button></td></tr>
+                                <tr><td><button class='btn btn-primary action-button' data-toggle="modal" data-target="#subscribers-modal">Add Subscribers</button></td></tr>
                                 <tr><td><button class='btn btn-primary action-button'>View History</button></td></tr>
                                 <tr><td><a href="sample_invoice.jpg"><button class='btn btn-info action-button'>View/Download</button></a></td></tr>
                             </tbody>
@@ -128,6 +129,42 @@
             </div>
         </div>
     </div>
+
+    <!--SUBSCRIBERS MODAL -->
+    <div class="modal fade" id='subscribers-modal'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Add Subscribers</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class='table'>
+                            <tbody>
+                                <tr>
+                                    <td>Branch Manager</td>
+                                    <td><button class='btn btn-info'>Subscribe</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Joe</td>
+                                    <td><button class='btn btn-info'>Subscribe</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Warren</td>
+                                    <td><button class='btn btn-info'>Subscribe</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--END SUBSCRIBERS MODAL -->
+
 </body>
 
 
