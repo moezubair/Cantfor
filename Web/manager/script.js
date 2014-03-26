@@ -199,10 +199,10 @@ Display.prototype.changeInvoiceStatus = function(stat){
 //===================================================
 var record_1 = new InvoiceRecord(1, "MacBook Air Purchase", "2014-01-01", "NEW"); 
 var record_2 = new InvoiceRecord(2, "10000 Pages of Paper", "2014-02-15", "FLAGGED"); 
-var record_3 = new InvoiceRecord(3, "New Desk From Staples", "2014-01-11", "NEW"); 
+var record_3 = new InvoiceRecord(3, "New Desk From Staples", "2014-01-11", "PAID"); 
 var record_4 = new InvoiceRecord(4, "Black liquid ink pens", "2014-03-10", "APPROVED"); 
 var record_5 = new InvoiceRecord(5, "Monitors from Acer", "2014-03-15", "VERIFIED"); 
-var record_6 = new InvoiceRecord(6, "Coffee from Thrifties", "2014-03-01", "PAID"); 
+var record_6 = new InvoiceRecord(6, "Coffee from Thrifties", "2014-03-01", "NEW"); 
 var record_7 = new InvoiceRecord(6, "Wall clock from Homehardware", "2014-03-12", "NEW", "Branch Manager"); 
 
 //add some subscribers
