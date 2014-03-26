@@ -31,7 +31,6 @@ body {
     top: 51px;
     bottom: 0;
     left: 0;
-    z-index: 1000;
     display: block;
     padding: 20px;
     overflow-x: hidden;
@@ -39,7 +38,6 @@ body {
     background-color: #f5f5f5;
     border-right: 1px solid #eee;
   }
-}
 
 /* Sidebar navigation */
 .nav-sidebar {
@@ -96,4 +94,30 @@ body {
 .placeholder img {
   display: inline-block;
   border-radius: 50%;
+}
+
+.small-box{
+    height:20px; 
+    width:20px;
+    background-color:white;
+    border: 1px solid black; 
+}
+
+.small-box-new{
+    background-color:#428bca; 
+}
+.small-box-approved{
+    background-color:#5cb85c;
+}
+.small-box-success{
+    background-color:#5bc0de; 
+}
+.small-box-verified{
+    background-color:#5bc0de; 
+}
+.small-box-paid{
+    background-color:#f0ad4e;
+}
+.small-box-flagged{
+    background-color:#d9534f;
 }

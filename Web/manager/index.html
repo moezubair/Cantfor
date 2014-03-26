@@ -8,10 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="Zubair">
     <title>APAR Manager</title>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-
+  <script type="text/javascript" src="jquery.js"></script>
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
 
 
     <!-- Custom styles for this template -->
@@ -34,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Cantfor</a>
+          <a class="navbar-brand" href="#">Cantfor: APAR Management</a>
         </div>
         <div class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
@@ -47,13 +46,25 @@
     <div class="container">
         <div class="row">
               <!-- SIDE BAR-->
-            <div class="col-sm-3">
+            <div class="col-sm-5 sidebar">
                   <div class="row">
-                        <button class="btn btn-primary" onclick="show_records('ALL');">All</button>
+                        <button class="btn btn-default" onclick="show_records('ALL');">All</button>
+                        <button class="btn btn-primary" onclick="show_records('NEW');">New</button>
+                        <button class="btn btn-success" onclick="show_records('APPROVED');">Approved</button>
+                        <button class="btn btn-info" onclick="show_records('VERIFIED');">Verified</button>
+                        <button class="btn btn-danger" onclick="show_records('FLAGGED');">Flagged</button>
+                        <button class="btn btn-warning" onclick="show_records('PAID');">Paid</button>
                   </div>
+                  <hr>
                  <div class="row">
-                        <table class="table">
-                            <tbody id="invoice-record-table">
+                        <table class="table" id="invoice-record-table">
+                            <tr>
+                                <th>Status</th>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                            </tr>
+                            <tbody id="invoice-record-table-body">
                                <!--INVOICE RECORDS GO HERE--> 
                             </tbody>
                         </table>
@@ -61,8 +72,9 @@
             </div>
             <!--END SIDEBAR-->
             <!--MAIN PAGE-->
-            <div class="col-sm-9 main">
-                <h1 class="page-header">Invoices</h1>
+            <div class="col-sm-7 col-sm-offset-5">
+                <h3 id="invoice-record-title">Title</h1>
+                <hr>
             </div>
         </div>
     </div>
