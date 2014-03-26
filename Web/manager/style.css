@@ -35,7 +35,7 @@ body {
     padding: 20px;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-    background-color: #f5f5f5;
+    background-color: #F8F5F5;
     border-right: 1px solid #eee;
   }
 
@@ -120,4 +120,12 @@ body {
 }
 .small-box-flagged{
     background-color:#d9534f;
+}
+
+#button-table tr td{
+    border-top:none;
+}
+
+.action-button{
+    width:150px;
 }

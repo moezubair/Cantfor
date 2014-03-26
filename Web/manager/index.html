@@ -57,14 +57,14 @@
                   </div>
                   <hr>
                  <div class="row">
-                        <table class="table" id="invoice-record-table">
+                        <table class="table table-hover" id="invoice-record-table">
                             <tr>
                                 <th>Status</th>
                                 <th>ID</th>
                                 <th>Title</th>
                                 <th>Date</th>
                             </tr>
-                            <tbody id="invoice-record-table-body">
+                            <tbody id="invoice-record-table-body" class='table-hover'>
                                <!--INVOICE RECORDS GO HERE--> 
                             </tbody>
                         </table>
@@ -75,19 +75,52 @@
             <div class="col-sm-7 col-sm-offset-5">
                 <h3 id="invoice-record-title">Title</h1>
                 <hr>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <table class='table'>
+                            <tbody>
+                                <tr>
+                                    <td><b>ID:</b></td>
+                                    <td id="invoice-record-id-field">5</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Last Updated:</b></td>
+                                    <td id="invoice-record-date-field">2014-01-01</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Owner:</b></td>
+                                    <td id="invoice-record-owner-field">Logan</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Subscribers:</b></td>
+                                    <td id="invoice-record-subscribers-field">Logan, Joe, John</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class='col-sm-4'>
+                        <table class='table' id="button-table">
+                            <tbody>
+                                <tr><td><button class='btn btn-primary action-button'>Assume Ownership</button></td></tr>
+                                <tr><td><button class='btn btn-primary action-button'>Assign Ownership</button></td></tr>
+                                <tr><td><button class='btn btn-primary action-button'>Add Subscribers</button></td></tr>
+                                <tr><td><button class='btn btn-primary action-button'>View History</button></td></tr>
+                                <tr><td><a href="sample_invoice.jpg"><button class='btn btn-info action-button'>View/Download</button></a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-sm-6' id="invoice-action-button-wrapper">
+                        <!--invoice action buttons go here--> 
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </body>
 
 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-<script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
 
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-    });
-</script>    
 <script type="text/javascript" src="script.js"></script>
 </html>

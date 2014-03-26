@@ -5,6 +5,8 @@ function InvoiceRecord(id, title, date, record_status){
     this.title = title; 
     this.date = date;
     this.record_status = record_status;
+    this.owner = "APAR Manager";
+    this.subscribers = new Array();
 }
 InvoiceRecord.prototype.getTitle = function(){
     return this.title;
@@ -108,4 +110,25 @@ function clearInvoiceRecords(){
 */
 function displayInvoiceRecord(i){
     console.log("displayInvoiceRecord("+i+")");
+
+    clearInvoiceRecordDisplay();  //clear all fields. 
+
+    // Update all fields within the invoice display.
+    $("#invoice-record-title").text(records[i].title); 
+    $("#invoice-record-date-field").text(records[i].date); 
+    $("#invoice-record-owner-field").text(records[i].owner); 
+    $("#invoice-record-id-field").text(records[i].id); 
+}
+
+/*
+* Clears all fields in the invoice records
+* display
+*/
+function clearInvoiceRecordDisplay(){
+    console.log("clearInvoiceRecordDisplay()");
+    $("#invoice-record-title").empty();     
+    $("#invoice-record-id-field").empty();     
+    $("#invoice-record-date-field").empty();     
+    $("#invoice-record-owner-field").empty();     
+    $("#invoice-record-subscribers-field").empty();     
 }
