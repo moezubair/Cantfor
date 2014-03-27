@@ -8,11 +8,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
-
+    <script language="Javascript">
+	function testResults(form){
+		var email = form.email.value;
+		var password = form.password.value;
+		if (email=="manager@cantfor.com" && password=="demo"){
+			window.location.href = "./manager/index.html";
+		}else if (email=="mailroom@cantfor.com" && password=="demo"){
+			window.location.href="./mailroom/index.html";
+		}else if (email=="accountant@cantfor.com" && password="demo"){
+			window.location.href="./accountant/index.html";
+		}else{
+			alert("Invalid Username/Password");
+		}
+	}
+   </script>
     <title>Cantfor Invoice Management</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
 
     <!-- Custom styles for this template -->
@@ -29,14 +43,14 @@
 
     <div class="container">
 
-      <form class="form-signin" role="form">
+      <form class="form-signin" role="form" method="POST">
         <h2 class="form-signin-heading">Please sign in</h2>
-        <input type="email" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" class="form-control" placeholder="Password" required>
+        <input type="email" class="form-control" placeholder="Email address" name="email" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" name="password" required>
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="testResults(this.form)">Sign in</button>
       </form>
 
     </div> <!-- /container -->
