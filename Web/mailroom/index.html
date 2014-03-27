@@ -16,7 +16,7 @@
 
     <!-- Custom styles for this template -->
     <link href="style.css" rel="stylesheet">
-
+ <link href="../signin.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -43,40 +43,39 @@
         </div>
       </div>
     </div>
-  <!-- SIDE BAR-->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-3 sidebar">
-              <div class="col-md-4 col-sm-3 placeholder" id="tabs" data-tabs="tabs">
-                <a href="#approved" data-toggle="tab"><img data-src="holder.js/70x70/sky/text:Approved" class="img-responsive" alt="active"></a>
-            </div>
-              <div class="col-md-4 col-sm-3 placeholder">
-                <img data-src="holder.js/70x70/vine/text:Assigned" class="img-responsive" alt="Assigned">
-            </div>
-          
-          <div class="tab-content" id="tab-content">
-            <div class="tab-pane fade in active" id="home">WILL SHOW ALL LISTINGS</div>
-            <div class="tab-pane fade" id="approved">Only show approved listings</div>
-        </div>
-          
-          
-            </div>
-        </div><!--END SIDEBAR-->
+
         <!--MAIN PAGE-->
-        <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
-          <h1 class="page-header">Add Invoice</h1>
+        <div class="col-sm-9 col-md-9 main">
+			<h1 class="page-header">Add Invoice</h1>
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="invoicefile" class="col-sm-2 col-md-2 control-label">Invoice File</label>
+					<div class="col-md-3">
+  <div style="position:relative;">
+		<a class='btn btn-primary' href='javascript:;'>
+			Choose File...
+			<input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());' required>
+		</a>
+		&nbsp;
+		<span class='label label-info' id="upload-file-info"></span>
+	</div>
+	</div>
+				</div>
+				<div class="form-group">
+				<div class="col-md-3 col-md-offset-2">
+					<button class="btn btn-lg btn-primary " type="submit">Add Invoice</button>
+				</div>
+				</div>
+				
+				
+			</form>
+			
 
       </div>
-    </div>
 
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
  <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
 
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $('#tabs').tab();
-    });
-</script>    
   </body>
 </html>

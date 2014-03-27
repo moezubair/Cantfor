@@ -2,26 +2,32 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <script language="Javascript">
+    <script type="text/javascript">
 	function testResults(form){
 		var email = form.email.value;
 		var password = form.password.value;
 		if (email=="manager@cantfor.com" && password=="demo"){
 			window.location.href = "./manager/index.html";
+			return false;
 		}else if (email=="mailroom@cantfor.com" && password=="demo"){
-			window.location.href="./mailroom/index.html";
-		}else if (email=="accountant@cantfor.com" && password="demo"){
-			window.location.href="./accountant/index.html";
+			window.location.href = "./mailroom/index.html";
+			return false;
+		}else if (email=="accountant@cantfor.com" && password=="demo"){
+			window.location.href = "./accountant/index.html";
+			return false;
 		}else{
 			alert("Invalid Username/Password");
+			return true;
 		}
+		
 	}
    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>Cantfor Invoice Management</title>
 
     <!-- Bootstrap core CSS -->
@@ -49,13 +55,13 @@
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" onClick="testResults(this.form)">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="return testResults(this.form)">Sign in</button>
       </form>
 
     </div> <!-- /container -->
 
-
-<script src="https//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="./manager/jquery.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
   </body>
 </html>
