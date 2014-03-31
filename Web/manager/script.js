@@ -257,7 +257,7 @@ var records = new Array(
     record_10
 );
 var disp = new Display(records, 0);
-disp.user = "Branch Manager";
+disp.user = "APAR Manager";
 disp.show_records(disp.current_filter);
 disp.init(); 
 console.log(disp.records); 
