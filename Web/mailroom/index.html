@@ -9,7 +9,16 @@
     <meta name="author" content="Zubair">
     <title>Mailroom Clerk</title>
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-
+<script src="http://stevenlevithan.com/assets/misc/date.format.js"></script>
+<script type="text/javascript">
+bootstrap_alert = function() {}
+bootstrap_alert.warning = function(form) {
+	if (form.file.value!=""){
+            $('#alert_placeholder').html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span><strong>Sucess! </strong>Invoice has been added</span></div>')
+$("#upload-file-info").html("");
+	form.file.value='';
+return false; }}
+</script>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
@@ -52,23 +61,32 @@
         <!--MAIN PAGE-->
         <div class="col-sm-9 col-md-9 main">
 			<h1 class="page-header">Add Invoice</h1>
-			<form class="form-horizontal" role="form">
+			<div id = "alert_placeholder"></div>
+			<form class="form-horizontal" role="form" method="post">
 				<div class="form-group">
 					<label for="invoicefile" class="col-sm-2 col-md-2 control-label">Invoice File</label>
 					<div class="col-md-3">
   <div style="position:relative;">
 		<a class='btn btn-primary' href='javascript:;'>
 			Choose File...
-			<input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());' required>
+			<input type="file" id="file" name="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());' required>
 		</a>
 		&nbsp;
 		<span class='label label-info' id="upload-file-info"></span>
 	</div>
 	</div>
+
 				</div>
 				<div class="form-group">
-				<div class="col-md-3 col-md-offset-2">
-					<button class="btn btn-lg btn-primary " type="submit">Add Invoice</button>
+				<label for="timedate" class="col-sm-2 col-md-2 control-label">Date</label>
+				<div class="col-sm-1 col-md-2">
+				<input type="text" name="datetime"  id="datetime" class="form-control" disabled/>
+				</div>
+				</div>
+				<br />
+				<div class="form-group">
+				<div class="col-md-2 col-md-offset-2">
+					<button class="btn btn-lg btn-primary " type="submit" id="submit" onclick="return bootstrap_alert.warning(this.form);">Add Invoice</button>
 				</div>
 				</div>
 				
@@ -81,6 +99,8 @@
 
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
  <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
-
+<script>
+   document.getElementById('datetime').value = (new Date()).format("dd/mm/yyyy");
+</script>
   </body>
 </html>
