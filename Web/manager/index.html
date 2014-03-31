@@ -113,7 +113,7 @@
                                 <tr><td><button class='btn btn-primary action-button' onclick="disp.assumeOwnership()">Assume Ownership</button></td></tr>
                                 <tr><td><button class='btn btn-primary action-button' data-toggle="modal" data-target="#assign-modal">Assign Ownership</button></td></tr>
                                 <tr><td><button class='btn btn-primary action-button' data-toggle="modal" data-target="#subscribers-modal">Add Subscribers</button></td></tr>
-                                <tr><td><button class='btn btn-primary action-button'>View History</button></td></tr>
+                                <tr><td><button class='btn btn-primary action-button' data-toggle="modal" data-target="#view-history">View History</button></td></tr>
                                 <tr><td><a href="sample_invoice.jpg"><button class='btn btn-info action-button'>View/Download</button></a></td></tr>
                             </tbody>
                         </table>
@@ -227,7 +227,38 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <!--END SUBSCRIBERS MODAL -->
-
+    <!--VIEW HISTORY MODAL -->
+    <div class="modal fade" id='view-history'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">History</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class='table'>
+                            <tbody>
+				<th>User</th><th>Action</th><th>Date</th>
+                                <tr>
+                                    <td>Joe</td>
+                                    <td>Added the Invoice to System</td>
+				    <td>March 20 2014</td>
+                                </tr>
+                                <tr>
+                                    <td>Clark</td>
+                                    <td>Assigned Invoice to Jane</td>
+				    <td>March 21 2014</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--END ASSIGN OWNERS MODAL -->
 </body>
 
 
